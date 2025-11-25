@@ -29,8 +29,8 @@ hr {
 .section {
     display: flex;
     margin-bottom: 20px;
-    text-decoration: underline;
     font-weight: bold;
+    text-decoration: underline;
 }
 
 .section-title {
