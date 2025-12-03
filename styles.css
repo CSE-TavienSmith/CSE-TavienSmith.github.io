@@ -42,29 +42,10 @@ body{
   gap:var(--gap);
   padding:1rem 0;
 }
-.site-title { 
-  margin:0; 
-  color:var(--accent); 
-  font-size:1.6rem; 
-}
-.site-nav ul { 
-  list-style:none; 
-  display:flex; 
-  gap:0.5rem; 
-  margin:0; 
-  padding:0; 
-}
-.site-nav a { 
-  text-decoration:none; 
-  color:var(--muted); 
-  padding:0.4rem 0.6rem; 
-  border-radius:8px; 
-}
-.site-nav a:hover, .site-nav a:focus { 
-  color:var(--text); 
-  background:rgba(11,118,193,0.06); 
-  outline:none; 
-}
+.site-title { margin:0; color:var(--accent); font-size:1.6rem; }
+.site-nav ul { list-style:none; display:flex; gap:0.5rem; margin:0; padding:0; }
+.site-nav a { text-decoration:none; color:var(--muted); padding:0.4rem 0.6rem; border-radius:8px; }
+.site-nav a:hover, .site-nav a:focus { color:var(--text); background:rgba(11,118,193,0.06); outline:none; }
 
 /* skip link for keyboard users */
 .skip-link {
@@ -76,63 +57,31 @@ body{
   overflow:hidden;
 }
 .skip-link:focus {
-  left:10px; 
-  top:10px; 
-  width:auto; 
-  height:auto; 
-  padding:8px 12px;
-  background:#000; 
-  color:#fff; 
-  border-radius:6px; 
-  z-index:9999;
+  left:10px; top:10px; width:auto; height:auto; padding:8px 12px;
+  background:#000; color:#fff; border-radius:6px; z-index:9999;
 }
 
-/* ---------- unified card style (used by All sections) ---------- */
+/* cards */
 .card {
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 1rem;
-  margin-bottom: 1rem;
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:1rem;
+  margin-bottom:1rem;
   box-shadow: 0 6px 18px rgba(13,18,25,0.06);
-  border: 2px solid rgba(11,118,193,0.08);
 }
 
-/* ---------- TEXT HEADINGS ---------- */
-h1 {
-  color: var(--accent);
-  margin: 0 0 0.5rem 0;
-}
-
-h2 {
-  font-size:1.25rem;
-  color: var(--accent);   /* match Highlighted Projects */
-  margin: 0 0 0.5rem 0;
-}
-
-h3 {
-  font-size:1rem;
-  color: var(--accent);
-  margin: 0 0 0.5rem 0;
-}
-
-a { 
-  color: var(--accent); 
-  text-decoration: none; 
-}
-a:hover, a:focus { 
-  text-decoration: underline; 
-}
-
-/* ---------- Highlighted Projects: 4 Across Row ---------- */
+/* ---------- projects GRID (4 boxes under the heading) ---------- */
+/* projects container: the title will span full width, projects are grid items */
 .projects {
   margin: 1.25rem 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);  /* 4 across */
+  /* 4 columns on wide screens */
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   align-items: start;
 }
 
-/* Title spans full width */
+/* ensure the heading spans all columns */
 .projects-title {
   grid-column: 1 / -1;
   margin: 0 0 0.5rem 0;
@@ -141,7 +90,7 @@ a:hover, a:focus {
   font-size: 1.25rem;
 }
 
-/* individual project cards */
+/* each project acts like a card */
 .project {
   padding: 1rem;
   border-radius: 10px;
@@ -152,7 +101,7 @@ a:hover, a:focus {
   gap: 0.5rem;
 }
 
-/* responsive project images */
+/* responsive images */
 .project img {
   width: 100%;
   height: auto;
@@ -162,39 +111,36 @@ a:hover, a:focus {
   border: 2px solid rgba(11,118,193,0.08);
 }
 
-.project p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--text);
+/* project headings and copy */
+.project h3 { margin: 0 0 0.25rem 0; color: var(--accent); font-size: 1rem; }
+.project p { margin: 0; color: var(--text); font-size: 0.95rem; }
+
+/* breakpoints for responsiveness */
+@media (max-width: 1100px) {
+  .projects { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 800px) {
+  .projects { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .projects { grid-template-columns: 1fr; }
 }
 
-/* ---------- Responsive Layout ---------- */
-@media (max-width: 1100px) {
-  .projects { 
-    grid-template-columns: repeat(3, 1fr); 
-  }
-}
-@media (max-width: 900px) {
-  .projects { 
-    grid-template-columns: repeat(2, 1fr); 
-  }
-}
-@media (max-width: 600px) {
-  .projects { 
-    grid-template-columns: 1fr; 
-  }
-}
+/* --------- rest of original styles kept / polished --------- */
+/* headings and links */
+h1, h2, h3 { margin:0 0 0.5rem 0; }
+h2 { font-size:1.25rem; color:var(--text); }
+h3 { font-size:1rem; color:var(--accent); }
+
+a { color:var(--accent); text-decoration: none; }
+a:hover, a:focus { text-decoration: underline; }
 
 /* small screens header tweaks */
 @media (max-width:900px){
-  .header-inner { 
-    flex-direction:column; 
-    align-items:flex-start; 
-    gap:0.5rem; 
-  }
+  .header-inner { flex-direction:column; align-items:flex-start; gap:0.5rem; }
 }
 @media (max-width:600px){
-  .site-nav ul { display:none; }
+  .site-nav ul { display:none; } /* keep header minimal on tiny screens */
   .container { padding:0.75rem; }
   .site-title { font-size:1.25rem; }
 }
