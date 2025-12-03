@@ -70,18 +70,16 @@ body{
   box-shadow: 0 6px 18px rgba(13,18,25,0.06);
 }
 
-/* ---------- projects GRID (4 boxes under the heading) ---------- */
-/* projects container: the title will span full width, projects are grid items */
+/* ---------- projects: 2x2 layout (do a direct replacement of previous .projects block) ---------- */
 .projects {
   margin: 1.25rem 0;
   display: grid;
-  /* 4 columns on wide screens */
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* 2 columns for desktop: 2 rows x 2 columns for 4 items */
   gap: 1rem;
   align-items: start;
 }
 
-/* ensure the heading spans all columns */
+/* ensure the heading spans full width */
 .projects-title {
   grid-column: 1 / -1;
   margin: 0 0 0.5rem 0;
@@ -90,7 +88,7 @@ body{
   font-size: 1.25rem;
 }
 
-/* each project acts like a card */
+/* individual project card (keeps your existing card look but tuned for 2x2) */
 .project {
   padding: 1rem;
   border-radius: 10px;
@@ -101,7 +99,7 @@ body{
   gap: 0.5rem;
 }
 
-/* responsive images */
+/* responsive project images (keeps aspect ratio and fits card) */
 .project img {
   width: 100%;
   height: auto;
@@ -115,15 +113,12 @@ body{
 .project h3 { margin: 0 0 0.25rem 0; color: var(--accent); font-size: 1rem; }
 .project p { margin: 0; color: var(--text); font-size: 0.95rem; }
 
-/* breakpoints for responsiveness */
-@media (max-width: 1100px) {
-  .projects { grid-template-columns: repeat(3, 1fr); }
+/* responsive breakpoints for graceful layout on smaller screens */
+@media (max-width: 900px) {
+  .projects { grid-template-columns: repeat(2, 1fr); } /* still 2 columns on medium */
 }
-@media (max-width: 800px) {
-  .projects { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 480px) {
-  .projects { grid-template-columns: 1fr; }
+@media (max-width: 700px) {
+  .projects { grid-template-columns: 1fr; } /* single column on small screens */
 }
 
 /* --------- rest of original styles kept / polished --------- */
@@ -178,4 +173,5 @@ a:hover, a:focus { text-decoration: underline; }
 /* small utilities */
 .center { text-align:center; }
 .hidden { display:none !important; }
+
 
