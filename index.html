@@ -1,83 +1,103 @@
 <!DOCTYPE html>
-<html>
-    <head>
-      <title>CSE 190: Tavien Smith</title>  
-      <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <h1>Tavien Smith</h1>
-        <div class="about">
-            <h2>About me</h2>
-            <p>
-            My mission is to grow into a person who uplifts others to be the best person they can be, achieve professional success through determination and dedication, and be remembered for my heart-warming personality and kindness.
-            </p>
-        </div>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CSE 190: Tavien Smith</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-        <div class="skills">
-            <h2>Skills</h2>
-            <span>
-          My resume: <a href="files/Resume.pdf">PDF version</a> | <a href="resume.html">HTML version</a>
-        </span>
-        </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="site-title">Tavien Smith</h1>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="files/p-statement.pdf" target="_blank" rel="noopener">Problem Statement</a></li>
+          <li><a href="files/Affinity.pdf" target="_blank" rel="noopener">Affinity Diagram</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-        <div class="projects">
-            <h2>Highlighted projects</h2>
-            <!-- Problem Statement Assignment -->
-        <section class="project">
-            <a href="files/p-statement.pdf">
-                <h3>Problem Statement</h3>
-            </a>
-            <a href="files/p-statement.pdf">
-                <img src="images/p-statement.png">
-            </a>
-            <p>
-            Many first-year computer science students at the University of South Carolina struggle to manage their time effectively between coding projects, coursework, and personal commitments, leading to increased stress and declines in academic performance.
-            </p>
-        </section>
-        <!--Affinity Diagram Assignment -->
-        <section class="project">
-        <a href="files/Affinity.pdf">
-            <h3>Affinity Diagram</h3>
-        </a>
-        <a href="files/Affinity.pdf">
-            <img src="images/Affinity Diagram.png">
-        </a>
-        <p>
-        Time management problems among first-year CS students at USC stem from — inaccurate time estimation, weak motivation, lack of digital organization tools, limited academic support, and declining well-being.
-        These issues reinforce one another, leading to stress, missed deadlines, and lower academic performance.
-        </p>
-        </section>
-        <!--Sketches Assignment-->
-        <section class="project">
-        <a href="files/Sketches.pdf">
-            <h3>Sketches</h3>
-        </a>
-        <a href="files/Sketches.pdf">
-            <img src="images/Sketches.png">
-        </a>
-        <p>
-        The FlowBoard sketches illustrate a mobile app designed to help students organize and manage their academic workload efficiently.
-        Sketch 1 shows the Home Dashboard, where users can view their current tasks and daily class schedule at a glance. Each task includes course names, due dates, and progress indicators to help students prioritize their workload.
-        Sketch 2 displays the Add Task screen, allowing users to enter key details like task name, due date, course, and estimated time needed for completion. This helps users plan their study sessions more accurately.
-        Sketch 3 represents the Focus Timer, a productivity feature that helps users stay on track by timing focused work sessions. It includes options to pause or end a session and clearly displays remaining time. 
-        Together, these wireframes demonstrate the core flow of FlowBoard: adding assignments, scheduling time, and maintaining focus through structured task management.    
-        </p>
-        </section>
-            <!-- Repositories assignment -->
-      <section class="project">
-        <a href="https://github.com/CSE-TavienSmith/HomeworkCSCE145"> 
-            <h3>Homework in CSCE 145!</h3>
-        </a>
-        <a href="https://github.com/CSE-TavienSmith/HomeworkCSCE145">
-            <img src="images/java.jpg">
-        </a>
-        <p> My Java homework assignments involve writing and testing code to practice programming concepts such as object-oriented design, data structures, and algorithms.</p>
-      </section>
-        </div>
+  <main id="main" class="container">
+    <section class="card about">
+      <h2>About me</h2>
+      <p>
+        My mission is to grow into a person who uplifts others to be the best person they can be,
+        achieve professional success through determination and dedication, and be remembered for my
+        heart-warming personality and kindness.
+      </p>
+    </section>
 
-        <div class="contact">
-            <h2>Contact me</h2>
-        </div>
-    </body>
+    <section class="card skills">
+      <h2>Skills & Resume</h2>
+      <p>
+        My resume: <a href="files/Resume.pdf" target="_blank" rel="noopener">PDF version</a> |
+        <a href="resume.html">HTML version</a>
+      </p>
+    </section>
+
+    <section class="projects">
+      <h2 class="projects-title">Highlighted projects</h2>
+
+      <article class="project card">
+        <a href="files/p-statement.pdf" target="_blank" rel="noopener" aria-labelledby="ps-title">
+          <h3 id="ps-title">Problem Statement</h3>
+        </a>
+        <a href="files/p-statement.pdf" target="_blank" rel="noopener">
+          <img src="images/p-statement.png" alt="Thumbnail of problem statement document">
+        </a>
+        <p>Many first-year computer science students at the University of South Carolina struggle to manage their time effectively...</p>
+      </article>
+
+      <article class="project card">
+        <a href="files/Affinity.pdf" target="_blank" rel="noopener" aria-labelledby="aff-title">
+          <h3 id="aff-title">Affinity Diagram</h3>
+        </a>
+        <a href="files/Affinity.pdf" target="_blank" rel="noopener">
+          <!-- rename image file to remove the space and update src if needed -->
+          <img src="images/affinity-diagram.png" alt="Affinity diagram showing time management themes">
+        </a>
+        <p>Time management problems among first-year CS students stem from inaccurate time estimation, weak motivation...</p>
+      </article>
+
+      <article class="project card">
+        <a href="files/Sketches.pdf" target="_blank" rel="noopener" aria-labelledby="sk-title">
+          <h3 id="sk-title">Sketches</h3>
+        </a>
+        <a href="files/Sketches.pdf" target="_blank" rel="noopener">
+          <img src="images/sketches.png" alt="Wireframe sketches for the FlowBoard app">
+        </a>
+        <p>Sketches illustrate a mobile app designed to help students organize and manage their academic workload efficiently...</p>
+      </article>
+
+      <article class="project card">
+        <a href="https://github.com/CSE-TavienSmith/HomeworkCSCE145" target="_blank" rel="noopener" aria-labelledby="hw-title">
+          <h3 id="hw-title">Homework in CSCE 145</h3>
+        </a>
+        <a href="https://github.com/CSE-TavienSmith/HomeworkCSCE145" target="_blank" rel="noopener">
+          <img src="images/java.jpg" alt="Java code screenshot or icon">
+        </a>
+        <p>My Java homework assignments involve writing and testing code to practice programming concepts such as OOP, data structures, and algorithms.</p>
+      </article>
+    </section>
+
+    <section class="card contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:taviens@email.sc.edu">taviens@email.sc.edu</a></p>
+      <!-- Optional: link to a separate contact page or a Formspree form -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© Tavien Smith — CSE 190 portfolio</p>
+    </div>
+  </footer>
+</body>
 </html>
-
