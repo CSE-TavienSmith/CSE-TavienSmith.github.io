@@ -61,22 +61,22 @@ body{
   background:#000; color:#fff; border-radius:6px; z-index:9999;
 }
 
-/* cards */
+/* ---------- unified card style (used by About, Skills, Contact, Projects) ---------- */
 .card {
-  background:var(--card);
-  border-radius:var(--radius);
-  padding:1rem;
-  margin-bottom:1rem;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
   box-shadow: 0 6px 18px rgba(13,18,25,0.06);
+  border: 2px solid rgba(11,118,193,0.08); /* visible subtle border to match project look */
 }
 
-/* ---------- projects GRID (4 boxes under the heading) ---------- */
+/* ---------- projects GRID (2 columns: 2 on top, 2 on bottom) ---------- */
 /* projects container: the title will span full width, projects are grid items */
 .projects {
   margin: 1.25rem 0;
   display: grid;
-  /* 4 columns on wide screens */
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* 2 columns desktop: 2x2 layout for 4 projects */
   gap: 1rem;
   align-items: start;
 }
@@ -116,14 +116,11 @@ body{
 .project p { margin: 0; color: var(--text); font-size: 0.95rem; }
 
 /* breakpoints for responsiveness */
-@media (max-width: 1100px) {
-  .projects { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) {
+  .projects { grid-template-columns: repeat(2, 1fr); } /* keep 2 columns on medium until smaller */
 }
-@media (max-width: 800px) {
-  .projects { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 480px) {
-  .projects { grid-template-columns: 1fr; }
+@media (max-width: 700px) {
+  .projects { grid-template-columns: 1fr; } /* single column on phones */
 }
 
 /* --------- rest of original styles kept / polished --------- */
