@@ -74,9 +74,9 @@ body{
 .projects {
   margin: 1.25rem 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns for desktop: 2 rows x 2 columns for 4 items */
-  gap: 1rem;
-  align-items: start;
+  grid-template-columns: repeat(2, 1fr); /* 2x2 layout */
+  gap: 2rem;              /* <-- increased spacing between cards */
+  align-items: start;      /* <-- keeps rows aligned */
 }
 
 /* ensure the heading spans full width */
@@ -90,13 +90,13 @@ body{
 
 /* individual project card (keeps your existing card look but tuned for 2x2) */
 .project {
-  padding: 1rem;
+  padding: 1.25rem;        /* <-- slightly more padding for balanced height */
   border-radius: 10px;
   background: var(--card);
   box-shadow: 0 6px 16px rgba(10,10,20,0.06);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;               /* <-- consistent spacing inside card */
 }
 
 /* responsive project images (keeps aspect ratio and fits card) */
@@ -173,5 +173,6 @@ a:hover, a:focus { text-decoration: underline; }
 /* small utilities */
 .center { text-align:center; }
 .hidden { display:none !important; }
+
 
 
