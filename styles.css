@@ -128,9 +128,30 @@ body{
 
 /* --------- rest of original styles kept / polished --------- */
 /* headings and links */
-h1, h2, h3 { margin:0 0 0.5rem 0; }
-h2 { font-size:1.25rem; color:var(--text); }
-h3 { font-size:1rem; color:var(--accent); }
+h1 {
+  margin: 0 0 0.5rem 0;
+  color: var(--accent);
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--accent);   /* now matches Highlighted Projects */
+}
+
+h3 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--accent);
+}
+
+a { 
+  color: var(--accent); 
+  text-decoration: none; 
+}
+a:hover, a:focus { 
+  text-decoration: underline; 
+}
 
 a { color:var(--accent); text-decoration: none; }
 a:hover, a:focus { text-decoration: underline; }
@@ -157,3 +178,4 @@ a:hover, a:focus { text-decoration: underline; }
 /* small utilities */
 .center { text-align:center; }
 .hidden { display:none !important; }
+
