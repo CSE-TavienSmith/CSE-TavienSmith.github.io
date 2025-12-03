@@ -1,87 +1,24 @@
-/* Basic theme & variables */
-:root{
-  --bg:#f7f6ef;       /* light background */
-  --card:#ffffff;
-  --accent:#0b76c1;   /* blue accent */
-  --muted:#6b7178;
-  --text:#0b1b2b;
-  --radius:12px;
-  --max-width:1100px;
-  --gap:1rem;
-  font-family: "Arial", Helvetica, sans-serif;
-  font-size:16px;
-  line-height:1.45;
+/* headers updated */
+h1 {
+  color: var(--accent);
+  margin: 0 0 0.5rem 0;
 }
 
-* { box-sizing: border-box; }
-
-body{
-  margin:0;
-  background: var(--bg);
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+h2 {
+  font-size: 1.25rem;
+  color: var(--accent); /* now all headers match */
+  margin: 0 0 0.5rem 0;
 }
 
-.container{
-  width:100%;
-  max-width:var(--max-width);
-  margin:0 auto;
-  padding:1rem;
-}
-
-/* header */
-.site-header {
-  background: linear-gradient(90deg, rgba(11,118,193,0.06), transparent);
-  border-bottom:1px solid rgba(11,118,193,0.08);
-}
-.header-inner {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:var(--gap);
-  padding:1rem 0;
-}
-.site-title { margin:0; color:var(--accent); font-size:1.6rem; }
-.site-nav ul { list-style:none; display:flex; gap:0.5rem; margin:0; padding:0; }
-.site-nav a { text-decoration:none; color:var(--muted); padding:0.4rem 0.6rem; border-radius:8px; }
-.site-nav a:hover, .site-nav a:focus { color:var(--text); background:rgba(11,118,193,0.06); outline:none; }
-
-/* skip link for keyboard users */
-.skip-link {
-  position:absolute;
-  left:-999px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
-}
-.skip-link:focus {
-  left:10px; top:10px; width:auto; height:auto; padding:8px 12px;
-  background:#000; color:#fff; border-radius:6px; z-index:9999;
-}
-
-/* ---------- unified card style (used by About, Skills, Contact, Projects) ---------- */
-.card {
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 6px 18px rgba(13,18,25,0.06);
-  border: 2px solid rgba(11,118,193,0.08); /* visible subtle border to match project look */
-}
-
-/* ---------- projects GRID (2 columns: 2 on top, 2 on bottom) ---------- */
-/* projects container: the title will span full width, projects are grid items */
+/* Highlighted Projects: 4 in one row */
 .projects {
   margin: 1.25rem 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns desktop: 2x2 layout for 4 projects */
+  grid-template-columns: repeat(4, 1fr); 
   gap: 1rem;
   align-items: start;
 }
 
-/* ensure the heading spans all columns */
 .projects-title {
   grid-column: 1 / -1;
   margin: 0 0 0.5rem 0;
@@ -90,67 +27,13 @@ body{
   font-size: 1.25rem;
 }
 
-/* each project acts like a card */
-.project {
-  padding: 1rem;
-  border-radius: 10px;
-  background: var(--card);
-  box-shadow: 0 6px 16px rgba(10,10,20,0.06);
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+/* responsive shrink */
+@media (max-width: 1100px) {
+  .projects { grid-template-columns: repeat(3, 1fr); }
 }
-
-/* responsive images */
-.project img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
-  margin: 0 0 0.75rem 0;
-  border: 2px solid rgba(11,118,193,0.08);
-}
-
-/* project headings and copy */
-.project h3 { margin: 0 0 0.25rem 0; color: var(--accent); font-size: 1rem; }
-.project p { margin: 0; color: var(--text); font-size: 0.95rem; }
-
-/* breakpoints for responsiveness */
 @media (max-width: 900px) {
-  .projects { grid-template-columns: repeat(2, 1fr); } /* keep 2 columns on medium until smaller */
+  .projects { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 700px) {
-  .projects { grid-template-columns: 1fr; } /* single column on phones */
+@media (max-width: 600px) {
+  .projects { grid-template-columns: 1fr; }
 }
-
-/* --------- rest of original styles kept / polished --------- */
-/* headings and links */
-h1, h2, h3 { margin:0 0 0.5rem 0; }
-h2 { font-size:1.25rem; color:var(--text); }
-h3 { font-size:1rem; color:var(--accent); }
-
-a { color:var(--accent); text-decoration: none; }
-a:hover, a:focus { text-decoration: underline; }
-
-/* small screens header tweaks */
-@media (max-width:900px){
-  .header-inner { flex-direction:column; align-items:flex-start; gap:0.5rem; }
-}
-@media (max-width:600px){
-  .site-nav ul { display:none; } /* keep header minimal on tiny screens */
-  .container { padding:0.75rem; }
-  .site-title { font-size:1.25rem; }
-}
-
-/* footer */
-.site-footer {
-  border-top: 1px solid rgba(11,118,193,0.06);
-  padding: 0.75rem 0;
-  color: var(--muted);
-  font-size: 0.95rem;
-  text-align: center;
-}
-
-/* small utilities */
-.center { text-align:center; }
-.hidden { display:none !important; }
