@@ -1,39 +1,47 @@
-/* headers updated */
-h1 {
-  color: var(--accent);
-  margin: 0 0 0.5rem 0;
+/* Basic theme & variables */
+:root{
+  --bg:#f7f6ef;       /* light background */
+  --card:#ffffff;
+  --accent:#0b76c1;   /* blue accent */
+  --muted:#6b7178;
+  --text:#0b1b2b;
+  --radius:12px;
+  --max-width:1100px;
+  --gap:1rem;
+  font-family: "Arial", Helvetica, sans-serif;
+  font-size:16px;
+  line-height:1.45;
 }
 
-h2 {
-  font-size: 1.25rem;
-  color: var(--accent); /* now all headers match */
-  margin: 0 0 0.5rem 0;
+* { box-sizing: border-box; }
+
+body{
+  margin:0;
+  background: var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
-/* Highlighted Projects: 4 in one row */
-.projects {
-  margin: 1.25rem 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 1rem;
-  align-items: start;
+.container{
+  width:100%;
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:1rem;
 }
 
-.projects-title {
-  grid-column: 1 / -1;
-  margin: 0 0 0.5rem 0;
-  padding-left: 0.25rem;
-  color: var(--accent);
-  font-size: 1.25rem;
+/* header */
+.site-header {
+  background: linear-gradient(90deg, rgba(11,118,193,0.06), transparent);
+  border-bottom:1px solid rgba(11,118,193,0.08);
 }
-
-/* responsive shrink */
-@media (max-width: 1100px) {
-  .projects { grid-template-columns: repeat(3, 1fr); }
+.header-inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--gap);
+  padding:1rem 0;
 }
-@media (max-width: 900px) {
-  .projects { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-  .projects { grid-template-columns: 1fr; }
-}
+.site-title { 
+  margin:0; 
+  color:var(--accen
