@@ -70,35 +70,63 @@ body{
   box-shadow: 0 6px 18px rgba(13,18,25,0.06);
 }
 
-/* projects grid */
+/* ---------- projects GRID (4 boxes under the heading) ---------- */
+/* projects container: the title will span full width, projects are grid items */
 .projects {
-  display:flex;
-  flex-wrap:wrap;
-  gap:1rem;
-  align-items:flex-start;
-  margin-bottom:1rem;
+  margin: 1.25rem 0;
+  display: grid;
+  /* 4 columns on wide screens */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  align-items: start;
 }
-.projects-title { margin:0 0 0.5rem 0; padding-left:0.25rem; color:var(--accent); }
+
+/* ensure the heading spans all columns */
+.projects-title {
+  grid-column: 1 / -1;
+  margin: 0 0 0.5rem 0;
+  padding-left: 0.25rem;
+  color: var(--accent);
+  font-size: 1.25rem;
+}
 
 /* each project acts like a card */
 .project {
-  flex: 1 1 320px;       /* responsive columns */
-  max-width: 32%;
-  min-width: 260px;
-  display:flex;
-  flex-direction:column;
-  gap:0.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--card);
+  box-shadow: 0 6px 16px rgba(10,10,20,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-/* project images responsive */
-.project img{
-  width:100%;
-  height:auto;          /* keep aspect ratio */
-  display:block;
-  border-radius:8px;
-  border: 2px solid rgba(11,118,193,0.12);
+/* responsive images */
+.project img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  margin: 0 0 0.75rem 0;
+  border: 2px solid rgba(11,118,193,0.08);
 }
 
+/* project headings and copy */
+.project h3 { margin: 0 0 0.25rem 0; color: var(--accent); font-size: 1rem; }
+.project p { margin: 0; color: var(--text); font-size: 0.95rem; }
+
+/* breakpoints for responsiveness */
+@media (max-width: 1100px) {
+  .projects { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 800px) {
+  .projects { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .projects { grid-template-columns: 1fr; }
+}
+
+/* --------- rest of original styles kept / polished --------- */
 /* headings and links */
 h1, h2, h3 { margin:0 0 0.5rem 0; }
 h2 { font-size:1.25rem; color:var(--text); }
@@ -107,14 +135,25 @@ h3 { font-size:1rem; color:var(--accent); }
 a { color:var(--accent); text-decoration: none; }
 a:hover, a:focus { text-decoration: underline; }
 
-/* small screens */
+/* small screens header tweaks */
 @media (max-width:900px){
-  .project { max-width:48%; }
   .header-inner { flex-direction:column; align-items:flex-start; gap:0.5rem; }
 }
 @media (max-width:600px){
-  .project { max-width:100%; }
   .site-nav ul { display:none; } /* keep header minimal on tiny screens */
   .container { padding:0.75rem; }
   .site-title { font-size:1.25rem; }
 }
+
+/* footer */
+.site-footer {
+  border-top: 1px solid rgba(11,118,193,0.06);
+  padding: 0.75rem 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* small utilities */
+.center { text-align:center; }
+.hidden { display:none !important; }
